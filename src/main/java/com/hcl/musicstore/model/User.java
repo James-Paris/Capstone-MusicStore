@@ -18,6 +18,16 @@ public class User {
 	
 	private String password;
 	
+	private String address;
+	
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
 	//auto generated methods:
 	public Integer getId() {
 		return id;
@@ -51,12 +61,12 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", email=" + email + ", password=" + password + "]";
+		return "User [id=" + id + ", username=" + username + ", email=" + email + ", password=" + password
+				+ ", address=" + address + "]";
 	}
 	
-	
-
 }
