@@ -37,6 +37,11 @@
 	<div class="p-2 mb-2">
 		<a href="/create">Add Music Entry</a>
 	</div>
+	 <form method="get" action="search">
+        <input type="text" name="keyword" /> &nbsp;
+        <input type="submit" value="Search" />
+    </form>
+	
 	<table class="table table-striped table-light">
 		<thead>
 			<tr>
