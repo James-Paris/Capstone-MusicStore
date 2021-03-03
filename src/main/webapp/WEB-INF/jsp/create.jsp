@@ -20,11 +20,11 @@
 				<label for="genre" class="mb-1">Genre:</label>
 				<div class="input-group mb-2">
 					<select name="genre" id="genre" class="form-control">
-						<option value="rock">Rock</option>
-						<option value="pop">Pop</option>
-						<option value="hiphop">Hip Hop</option>
-						<option value="jazz">Jazz</option>
-						<option value="country">Country</option>
+						<option value="Rock">Rock</option>
+						<option value="Pop">Pop</option>
+						<option value="Hip Hop">Hip Hop</option>
+						<option value="Jazz">Jazz</option>
+						<option value="Country">Country</option>
 					</select>
 				</div>
 				<label for="songName" class="mb-1">Song title:</label>
@@ -61,8 +61,8 @@
 				<label for="price" class="mb-1">Song Price:</label>
 				<div class="input-group mb-3">
 
-					<input type="number" id="price" name="price"
-						placeholder="Enter an price" class="form-control">
+					<input type="number" step="0.01" min="0" id="price" name="price"
+						placeholder="Enter a price" class="form-control">
 
 				</div>
 				<div class="d-flex justify-content-center mt-3">

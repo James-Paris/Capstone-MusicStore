@@ -65,16 +65,9 @@
 					<td><fmt:formatDate type="date" value="${music.releaseDate}" /></td>
 					<td>${music.price}</td>
 
-					<c:choose>
-						<c:when test="${task.user.id == user.id}">
-							<td><a href="/edit/${task.id}">Edit</a></td>
-							<td><a href="/delete/${task.id}">Delete</a></td>
-						</c:when>
-						<c:otherwise>
-							<td></td>
-							<td></td>
-						</c:otherwise>
-					</c:choose>
+					<td><a href="/edit/${music.id}">Edit</a></td>
+					<td><a href="/delete/${music.id}">Delete</a></td>
+						
 				</tr>
 			</c:forEach>
 		</tbody>
