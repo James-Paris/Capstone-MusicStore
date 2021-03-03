@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Create Music Entry</title>
+
 </head>
 <body>
 			<form:form id="form">
@@ -18,12 +19,15 @@
 						placeholder="Enter a song name" class="form-control">
 
 				</div>
-				<label for="genre" class="mb-1">Music Genre:</label>
-				<div class="input-group mb-3">
-
-					<input type="text" id="genre" name="genre"
-						placeholder="Enter a music genre" class="form-control">
-
+				<label for="genre" class="mb-1">Genre:</label>
+				<div class="input-group mb-2">
+					<select name="genre" id="genre" class="form-control">
+						<option value="rock">Rock</option>
+						<option value="pop">Pop</option>
+						<option value="hiphop">Hip Hop</option>
+						<option value="jazz">Jazz</option>
+						<option value="country">Country</option>
+					</select>
 				</div>
 				<label for="album" class="mb-1">Album Name:</label>
 				<div class="input-group mb-3">
