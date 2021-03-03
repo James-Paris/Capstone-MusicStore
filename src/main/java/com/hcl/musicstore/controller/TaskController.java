@@ -36,7 +36,7 @@ public class TaskController {
 	
 	@PostMapping("/create")
 	public RedirectView createNewTask(ModelMap model, Principal principal, Music task) {
-		task.setUser(userService.getUserByName(principal.getName()));
+	//	task.setUser(userService.getUserByName(principal.getName()));
 		log.info(task.toString());
 		taskService.AddTask(task);
 		return new RedirectView("show-all");
@@ -74,7 +74,7 @@ public class TaskController {
 		log.info("Removing task: " + id);
 		Music task = taskService.GetTaskById(id);
 		taskService.DeleteTask(task);
-		model.put("deleted", task.getName());
+		model.put("deleted", task.getSongName());
 		return new ModelAndView("redirect:/show-all", model);
 	}
 }
