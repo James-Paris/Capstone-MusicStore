@@ -1,5 +1,7 @@
 package com.hcl.musicstore.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +25,10 @@ public class MusicService {
     public Music AddTask(Music task) {
         return taskRepository.save(task);
     }
+    
+public List<Music> search(String keyword) {
+	return taskRepository.findMusicBySearch(keyword);
+}
     
     public void UpdateTask(Music task) {
     	Music oldTask = taskRepository.findById(task.getId()).get();
