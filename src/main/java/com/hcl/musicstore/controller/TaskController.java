@@ -47,7 +47,7 @@ public class TaskController {
 	public String showAllTasks(ModelMap model, Principal principal) {
 		log.info(principal.getName());
 		Iterable<Music> tasks = taskService.GetAllTasks();
-		model.put("tasks", tasks);
+		model.put("musics", tasks);
 		model.put("user", userService.getUserByName(principal.getName()));
 		return "show-all";
 	}

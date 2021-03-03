@@ -55,7 +55,7 @@
 				<label for="price" class="mb-1">Song Price:</label>
 				<div class="input-group mb-3">
 
-					<input type="text" id="price" name="price"
+					<input type="number" id="price" name="price"
 						placeholder="Enter an price" class="form-control">
 
 				</div>
