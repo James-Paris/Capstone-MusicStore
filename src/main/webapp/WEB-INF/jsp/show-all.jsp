@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>TaskManager</title>
+<title>Music Store</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -24,30 +24,28 @@
 <body class="p-2">
 
 	<c:if test="${param.deleted != null}">
-		<div id="alert" class="alert alert-success" role="alert">
-			Task deleted!
-		</div>
+		<div id="alert" class="alert alert-success" role="alert">Music
+			deleted!</div>
 	</c:if>
 
 	<div class="d-flex justify-content-between p-2">
-		<h1>Welcome to the TaskManager</h1>
+		<h1>Welcome to the Runtime Mechanics Music Store</h1>
 		<form:form action="logout" method="post">
 			<input type="submit" class="btn btn-light" value="Logout" />
 		</form:form>
 	</div>
 	<div class="p-2 mb-2">
-		<a href="/create">Create Task</a>
+		<a href="/create">Add Music Entry</a>
 	</div>
 	<table class="table table-striped table-light">
 		<thead>
 			<tr>
-				<th scope="col">Task Name</th>
+				<th scope="col">Genre</th>
+				<th scope="col">Song Name</th>
+				<th scope="col">Artist</th>
 				<th scope="col">Description</th>
-				<th scope="col">Start Date</th>
-				<th scope="col">End Date</th>
-				<th scope="col">Email</th>
-				<th scope="col">Severity</th>
-				<th scope="col">Owner</th>
+				<th scope="col">Release Date</th>
+				<th scope="col">Price</th>
 				<th scope="col"></th>
 				<th scope="col"></th>
 			</tr>
