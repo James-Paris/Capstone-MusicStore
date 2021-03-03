@@ -21,50 +21,50 @@
 				<p>Please enter the details of your song:</p>
 				<label for="genre" class="mb-1">Genre:</label>
 				<div class="input-group mb-2">
-					<select name="genre" id="genre" class="form-control">
-						<option value="rock">Rock</option>
-						<option value="pop">Pop</option>
-						<option value="hiphop">Hip Hop</option>
-						<option value="jazz">Jazz</option>
-						<option value="country">Country</option>
+					<select name="genre" id="genre" class="form-control" value="${task.genre }">
+						<option value="Rock">Rock</option>
+						<option value="Pop">Pop</option>
+						<option value="Hip Hop">Hip Hop</option>
+						<option value="Jazz">Jazz</option>
+						<option value="Country">Country</option>
 					</select>
 				</div>
 				<label for="songName" class="mb-1">Song title:</label>
 				<div class="input-group mb-3">
 					<input type="text" id="songName" name="songName"
-						value="${music.songName}" class="form-control">
+						value="${task.songName}" class="form-control">
 				</div>
 				
 				<label for="artist" class="mb-1">Artist Name:</label>
 				<div class="input-group mb-3">
 					<input type="text" id="artist" name="artist"
-						value="${music.artist }" class="form-control">
+						value="${task.artist }" class="form-control">
 				</div>
 				
 				<label for="album" class="mb-1">Album Name:</label>
 				<div class="input-group mb-3">
 					<input type="text" id="album" name="album"
-						value="${music.album }" class="form-control">
+						value="${task.album }" class="form-control">
 				</div>
 				
 				<label for="description" class="mb-1">Description:</label>
 				<div class="input-group mb-3">
 					<textarea id="description" name="description" rows="5" cols="40"
-						value="${music.description }" class="form-control"></textarea>
+					  class="form-control"></textarea>
 				</div>
 				
 				<label for="releaseDate" class="mb-1">Release Date:</label>
 				<div class="input-group mb-3">
 
 					<input type="date" id="releaseDate" name="releaseDate"
-						class="form-control">
+						value="${task.releaseDate}" class="form-control">
 				</div>
 				
 				<label for="price" class="mb-1">Song Price:</label>
 				<div class="input-group mb-3">
 
-					<input type="number" id="price" name="price"
-						value="${music.price }" class="form-control">
+					<input type="number" step="0.01" min="0" id="price" name="price"
+						value="${task.price }" class="form-control">
 
 				</div>
 				<div class="d-flex justify-content-center mt-3">
