@@ -51,15 +51,15 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${tasks}" var="task">
+			<c:forEach items="${musics}" var="music">
 				<tr>
-					<td>${task.name}</td>
-					<td>${task.description}</td>
-					<td><fmt:formatDate type="date" value="${task.startDate}" /></td>
-					<td><fmt:formatDate type="date" value="${task.endDate}" /></td>
-					<td>${task.email}</td>
-					<td>${task.severity}</td>
-					<td>${task.user.username}</td>
+					<td>${music.genre}</td>
+					<td>${music.songName}</td>
+					<td>${music.artist}</td>
+					<td>${music.description}</td>
+					<td><fmt:formatDate type="date" value="${music.releaseDate}" /></td>
+					<td>${music.price}</td>
+
 					<c:choose>
 						<c:when test="${task.user.id == user.id}">
 							<td><a href="/edit/${task.id}">Edit</a></td>
