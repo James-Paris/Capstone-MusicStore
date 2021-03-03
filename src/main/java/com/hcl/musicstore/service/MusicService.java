@@ -26,11 +26,15 @@ public class MusicService {
     
     public void UpdateTask(Music task) {
     	Music oldTask = taskRepository.findById(task.getId()).get();
-    	oldTask.setName(task.getName());
-    	oldTask.setStartDate(task.getStartDate());
+    	oldTask.setSongName(task.getSongName());
+    	oldTask.setReleaseDate(task.getReleaseDate());
     	oldTask.setDescription(task.getDescription());
-    	oldTask.setEmail(task.getEmail());
-    	oldTask.setSeverity(task.getSeverity());
+    	oldTask.setArtist(task.getArtist());
+    	oldTask.setPrice(task.getPrice());
+    	oldTask.setDescription(task.getDescription());
+    	oldTask.setGenre(task.getGenre());
+
+
     	taskRepository.save(oldTask);
     }
 
