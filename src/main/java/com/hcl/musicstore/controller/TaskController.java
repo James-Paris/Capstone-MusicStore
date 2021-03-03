@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
-import com.hcl.musicstore.model.Task;
-import com.hcl.musicstore.service.TaskService;
+import com.hcl.musicstore.model.Music;
+import com.hcl.musicstore.service.MusicService;
 import com.hcl.musicstore.service.UserService;
 
 @Controller
@@ -23,7 +23,7 @@ public class TaskController {
 	private Logger log = LoggerFactory.getLogger(TaskController.class);
 	
 	@Autowired
-	TaskService taskService;
+	MusicService taskService;
 	
 	@Autowired
 	UserService userService;
@@ -35,7 +35,7 @@ public class TaskController {
 	}
 	
 	@PostMapping("/create")
-	public RedirectView createNewTask(ModelMap model, Principal principal, Task task) {
+	public RedirectView createNewTask(ModelMap model, Principal principal, Music task) {
 		task.setUser(userService.getUserByName(principal.getName()));
 		log.info(task.toString());
 		taskService.AddTask(task);
@@ -46,7 +46,7 @@ public class TaskController {
 	@GetMapping({"/", "/show-all"})
 	public String showAllTasks(ModelMap model, Principal principal) {
 		log.info(principal.getName());
-		Iterable<Task> tasks = taskService.GetAllTasks();
+		Iterable<Music> tasks = taskService.GetAllTasks();
 		model.put("tasks", tasks);
 		model.put("user", userService.getUserByName(principal.getName()));
 		return "show-all";
@@ -55,14 +55,14 @@ public class TaskController {
 	//edit tasks
 	@GetMapping("/edit/{id}")
 	public String updateTaskForm(ModelMap model, @PathVariable("id") Integer id) {
-		Task task = taskService.GetTaskById(id);
+		Music task = taskService.GetTaskById(id);
 		log.info(task.toString());
 		model.put("task", task);
 		return "update";
 	}
 	
 	@PostMapping("/edit/{id}")
-	public RedirectView updateTask(Principal principal, Task task, @PathVariable("id") Integer id) {
+	public RedirectView updateTask(Principal principal, Music task, @PathVariable("id") Integer id) {
 		log.info(task.toString());
 		taskService.UpdateTask(task);
 		return new RedirectView("/show-all");
@@ -72,7 +72,7 @@ public class TaskController {
 	@GetMapping("delete/{id}")
 	public ModelAndView deleteTask(ModelMap model, @PathVariable("id") Integer id) {
 		log.info("Removing task: " + id);
-		Task task = taskService.GetTaskById(id);
+		Music task = taskService.GetTaskById(id);
 		taskService.DeleteTask(task);
 		model.put("deleted", task.getName());
 		return new ModelAndView("redirect:/show-all", model);

@@ -17,8 +17,6 @@ public class User {
 	private String email;
 	
 	private String password;
-	
-	private String address;
 
 	//auto generated methods:
 	public Integer getId() {
