@@ -26,9 +26,17 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/register").permitAll()
-			.anyRequest().authenticated().and().formLogin()
-			.loginPage("/login").permitAll().and().logout().permitAll();
+		http.authorizeRequests()
+		.antMatchers("/admin").hasAuthority("ADMIN")
+		.antMatchers("/register").permitAll()
+		.anyRequest().authenticated()
+		.and()
+		.formLogin().loginPage("/login").permitAll()
+		.and()
+		.exceptionHandling().accessDeniedPage("/403")
+		.and()
+		.logout().permitAll();
+		
 	}
 	
 	@Bean(name="passwordEncoder")

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
@@ -54,6 +55,7 @@ public class TaskController {
 	@GetMapping({ "/", "/show-all" })
 	public String showAllTasks(ModelMap model, Principal principal) {
 		log.info(principal.getName());
+
 		Iterable<Music> tasks = taskService.GetAllTasks();
 		model.put("musics", tasks);
 		model.put("user", userService.getUserByName(principal.getName()));
@@ -116,4 +118,24 @@ public class TaskController {
 		model.put("deleted", user.getUsername());
 		return new ModelAndView("redirect:/admin", model);
 	}
+	
+	//403 error custom
+	@RequestMapping(value = "/403", method = RequestMethod.GET)
+    public ModelAndView accesssDenied(Principal user) {
+
+        ModelAndView model = new ModelAndView();
+
+        if (user != null) {
+            model.addObject("msg", "Hi " + user.getName() 
+            + ", you do not have permission to access this page!");
+        } else {
+            model.addObject("msg", 
+            "You do not have permission to access this page!");
+        }
+
+        model.setViewName("403");
+        return model;
+
+    }
+
 }

@@ -53,5 +53,6 @@ public class UserService implements UserDetailsService {
 	public void removeUser(User user) {
         userRepo.delete(user);
     }
+	
 
 }
