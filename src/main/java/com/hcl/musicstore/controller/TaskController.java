@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.hcl.musicstore.model.Music;
+import com.hcl.musicstore.model.User;
 import com.hcl.musicstore.service.MusicService;
 import com.hcl.musicstore.service.UserService;
 
@@ -33,7 +34,8 @@ public class TaskController {
 
 	@Autowired
 	UserService userService;
-
+	
+	
 	// create tasks
 	@GetMapping("/create")
 	public String newTaskForm(ModelMap model) {
@@ -94,4 +96,14 @@ public class TaskController {
 		return mav;
 	}
 
+	@GetMapping("/admin")
+	public String adminPanel(ModelMap model, Principal principal) {
+		log.info(principal.getName());
+		Iterable<Music> tasks = taskService.GetAllTasks();
+		Iterable<User> users = userService.GetAllUsers();
+		model.put("musics", tasks);
+		model.put("userList", users);
+		model.put("user", userService.getUserByName(principal.getName()));
+		return "admin-showdata";
+	}
 }

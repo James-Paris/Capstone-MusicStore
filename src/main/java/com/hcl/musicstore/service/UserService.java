@@ -40,5 +40,9 @@ public class UserService implements UserDetailsService {
 		log.info("Loading user: " + user.toString());
 		return new UserPrincipal(user);
 	}
+	
+	public Iterable<User> GetAllUsers() {
+		return userRepo.findAll();
+	}
 
 }
