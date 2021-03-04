@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.hcl.musicstore.model.Music;
 import com.hcl.musicstore.model.User;
 import com.hcl.musicstore.model.UserPrincipal;
 import com.hcl.musicstore.repository.UserRepository;
@@ -44,5 +45,13 @@ public class UserService implements UserDetailsService {
 	public Iterable<User> GetAllUsers() {
 		return userRepo.findAll();
 	}
+	
+	public User getUserById(Integer id) {
+	        return userRepo.findById(id).get();
+	}
+	
+	public void removeUser(User user) {
+        userRepo.delete(user);
+    }
 
 }

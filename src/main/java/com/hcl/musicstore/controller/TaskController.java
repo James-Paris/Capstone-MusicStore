@@ -106,4 +106,14 @@ public class TaskController {
 		model.put("user", userService.getUserByName(principal.getName()));
 		return "admin-showdata";
 	}
+	
+	//remove user
+	@GetMapping("deleteuser/{id}")
+	public ModelAndView deleteUser(ModelMap model, @PathVariable("id") Integer id) {
+		log.info("Removing user: " + id);
+		User user = userService.getUserById(id);
+		userService.removeUser(user);
+		model.put("deleted", user.getUsername());
+		return new ModelAndView("redirect:/admin", model);
+	}
 }
