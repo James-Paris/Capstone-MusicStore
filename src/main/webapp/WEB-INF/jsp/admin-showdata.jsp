@@ -134,8 +134,35 @@
 	    </div>
 	    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
 	      <div class="card-body">
-	        TO DO: Make an Order Entity - Then according to the schema make the table here to allow the admin to change order's status here
-	        
+	       	<!-- Start card body -->
+	       	<h3>Order Management:</h3>
+	       	<table class="table table-striped table-light">
+	        	<thead>
+					<tr>
+						<th scope="col">Order Id</th>
+						<th scope="col">User Making Purchase</th>
+						<th scope="col">Order Details</th>
+						<th scope="col">Total Amount Paid</th>
+						<th scope="col">Order Status</th>
+						<th scope="col"></th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${orderList}" var="orderList">
+						<tr>
+							<td>${orderList.id}</td>
+							<td>${orderList.user}</td>
+							<td>${orderList.orderDetails}</td>
+							<td>${orderList.orderTotal}</td>
+							<td>${orderList.orderStatus }</td>
+							
+							<td><a href="/deleteorder/${userList.id}">Delete Order</a></td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+	       	<!-- End card body -->
 	      </div>
 	    </div>
 	  </div>

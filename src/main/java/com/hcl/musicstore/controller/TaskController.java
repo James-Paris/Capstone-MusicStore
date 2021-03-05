@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.hcl.musicstore.model.Music;
+import com.hcl.musicstore.model.Order;
 import com.hcl.musicstore.model.User;
 import com.hcl.musicstore.service.MusicService;
 import com.hcl.musicstore.service.UserService;
@@ -116,6 +117,15 @@ public class TaskController {
 		User user = userService.getUserById(id);
 		userService.removeUser(user);
 		model.put("deleted", user.getUsername());
+		return new ModelAndView("redirect:/admin", model);
+	}
+	
+	//remove order
+	@GetMapping("deleteorder/{id}")
+	public ModelAndView deleteOrder(ModelMap model, @PathVariable("id") Integer id) {
+		log.info("Removing order: " + id);
+		Order order;
+		model.put("deleted", order.getUser().getUsername());
 		return new ModelAndView("redirect:/admin", model);
 	}
 	
