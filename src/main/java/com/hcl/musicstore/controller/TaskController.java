@@ -139,15 +139,6 @@ public class TaskController {
 		model.put("deleted", user.getUsername());
 		return new ModelAndView("redirect:/admin", model);
 	}
-
-	//remove order
-	@GetMapping("deleteorder/{id}")
-	public ModelAndView deleteOrder(ModelMap model, @PathVariable("id") Integer id) {
-		log.info("Removing order: " + id);
-		Order order;
-		model.put("deleted", order.getUser().getUsername());
-		return new ModelAndView("redirect:/admin", model);
-	}
 	
 
 	@RequestMapping(value = "/LandingPage", method = RequestMethod.GET)
