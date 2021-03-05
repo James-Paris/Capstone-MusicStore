@@ -53,6 +53,7 @@
 				<th scope="col">Price</th>
 				<th scope="col"></th>
 				<th scope="col"></th>
+				<th scope="col"></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -67,6 +68,7 @@
 
 					<td><a href="/edit/${music.id}">Edit</a></td>
 					<td><a href="/delete/${music.id}">Delete</a></td>
+					<td><i class="glyphicon glyphicon-shopping-cart"></i><a href="/shoppingcart">Add To Cart</a></td>
 						
 				</tr>
 			</c:forEach>
