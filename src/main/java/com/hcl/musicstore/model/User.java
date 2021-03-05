@@ -5,6 +5,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.*;
+
 @Entity
 public class User {
 	
@@ -17,6 +23,21 @@ public class User {
 	private String email;
 	
 	private String password;
+	
+	private String role = "USER";
+	
+	
+
+	
+
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
 
 	//auto generated methods:
 	public Integer getId() {
