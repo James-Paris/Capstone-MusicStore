@@ -119,6 +119,13 @@ public class TaskController {
 		return new ModelAndView("redirect:/admin", model);
 	}
 	
+	@RequestMapping(value = "/LandingPage", method = RequestMethod.GET)
+		public String LandingPage(ModelMap model) {
+			return ("/LandingPage");
+		}
+		
+	
+	
 	//403 error custom
 	@RequestMapping(value = "/403", method = RequestMethod.GET)
     public ModelAndView accesssDenied(Principal user) {

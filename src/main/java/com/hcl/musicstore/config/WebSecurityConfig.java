@@ -29,6 +29,7 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 		.antMatchers("/admin").hasAuthority("ADMIN")
 		.antMatchers("/register").permitAll()
+		.antMatchers("/LandingPage").permitAll()
 		.anyRequest().authenticated()
 		.and()
 		.formLogin().loginPage("/login").permitAll()
@@ -48,10 +49,13 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		 auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoding());	 	
 	}
+	
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 	   web
 	         .ignoring()
 	         .antMatchers("/h2-console/**");
+	   	web.ignoring().antMatchers("/img/**");
+	   	web.ignoring().antMatchers("/css/**");
 	}
 }

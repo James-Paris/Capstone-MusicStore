@@ -1,9 +1,13 @@
-<html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<!DOCTYPE html>
 
+<html>
 <head>
-    <title>Mings Diner</title>
+    <title>Music Store</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
@@ -16,7 +20,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#"><img src="kids-2321161_960_720.webp"></a>
+                    <a class="navbar-brand" href="#"><img src="../img/kids-2321161_960_720.webp"/></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -26,10 +30,10 @@
                                 <a class="nav-link active" href="#">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="Menu.html">Menu</a>
+                                <a class="nav-link" href="Menu.html">(Insert Here)</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="Contact.html">Contact</a>
+                               <a class="nav-link" href="Contact.html">(Insert Here)</a><!--  nav bar links -->
 
                             </li>
 
@@ -43,6 +47,7 @@
     </div>
     
 <div id="mySidebar" class="sidebar">
+<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
  <h5>(insert shopping cart table code here</h5>
 </div>
 
@@ -68,7 +73,7 @@ function closeNav() {
         <div class="row">
             <div class="col-md-6">
                 <br>
-                <img src="vinyl-records-945396_960_720.jpg">
+                <img src="img/vinyl-records-945396_960_720.jpg">
             </div>
             <div class="col-md-6">
                 <div class="info">
@@ -78,8 +83,8 @@ function closeNav() {
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p>
                     <br>
-                    <a href="#">Order Now</a>
-                    <a href="#" class="second-btn">View Menu</a>
+                    <a href="#">View Music</a>
+                    <a href="login.jsp" class="second-btn">Sign In</a>
 
                 </div>
             </div>
