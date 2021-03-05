@@ -41,7 +41,7 @@
         <input type="text" name="keyword" /> &nbsp;
         <input type="submit" value="Search" />
     </form>
-	
+
 	<table class="table table-striped table-light">
 		<thead>
 			<tr>
@@ -51,6 +51,7 @@
 				<th scope="col">Description</th>
 				<th scope="col">Release Date</th>
 				<th scope="col">Price</th>
+				<th scope="col"></th>
 				<th scope="col"></th>
 				<th scope="col"></th>
 			</tr>
@@ -67,6 +68,7 @@
 
 					<td><a href="/edit/${music.id}">Edit</a></td>
 					<td><a href="/delete/${music.id}">Delete</a></td>
+					<td><i class="glyphicon glyphicon-shopping-cart"></i><a href="/shoppingcart">Add To Cart</a></td>
 						
 				</tr>
 			</c:forEach>

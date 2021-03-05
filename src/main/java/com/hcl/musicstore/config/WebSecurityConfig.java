@@ -14,7 +14,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 
-
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
@@ -58,4 +57,5 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
 	   	web.ignoring().antMatchers("/img/**");
 	   	web.ignoring().antMatchers("/css/**");
 	}
+
 }

@@ -23,27 +23,37 @@ integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolfl
 			<b>You have successfully logged in!</b>
 		</div>
 	</c:if>
-		<div class="d-flex align-items-center justify-content-center">
-			<form:form id="form" class="border border-2 rounded p-2">
-				<h2 class="text-center">Login:</h3>
-					Please enter your username and password:
-				<div class="input-group mb-3">
-					<input type="text" id="username" name="username" placeholder="Enter username" class="form-control">
+	<div class="login-form">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-8">
+					<div class="card">
+						<div class="card-header">Login</div>
+						<div class="card-body">
+							<form:form id="form" class="border border-2 rounded p-2">
+									Please enter your username and password:
+								<div class="input-group mb-3">
+									<input type="text" id="username" name="username" placeholder="Username" class="form-control">
+								</div>
+								<div class="input-group mb-3">
+									<input type="password" id="password" name="password" placeholder="Password" class="form-control">
+								</div>
+								<c:if test='${param.error != null}'>
+									<div class="text-center text-danger">Something didn't match!</div>
+								</c:if>
+								<div class="d-flex justify-content-center mt-3">
+									<input class="btn btn-primary" type="submit" value="Login">
+								</div>
+								<div class="d-flex justify-content-center mt-2 ">
+									<a clas="btn btn-link" href="/register">Register an account</a>
+								</div>
+							</form:form>
+						</div>
+					</div>
 				</div>
-				<div class="input-group mb-3">
-					<input type="password" id="password" name="password" placeholder="Enter password" class="form-control">
-				</div>
-				<c:if test='${param.error != null}'>
-					<div class="text-center text-danger">Something didn't match!</div>
-				</c:if>
-				<div class="d-flex justify-content-center mt-3">
-					<input type="submit" value="Login">
-				</div>
-				<div class="d-flex justify-content-center mt-2">
-					<a href="/register">Register an account</a>
-				</div>
-			</form:form>
+			</div>
 		</div>
+	</div>
 	
 
 </body>

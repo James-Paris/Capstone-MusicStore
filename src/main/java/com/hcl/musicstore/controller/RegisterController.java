@@ -30,7 +30,7 @@ private Logger log = LoggerFactory.getLogger(RegisterController.class);
 		log.info("Registerin user: " + user.toString());
 		if(user != null && user.getPassword() != "" && user.getEmail() != "" && user.getUsername() != "") {
 			service.addUser(user);
-			return new ModelAndView("redirect:/show-all", model);
+			return new ModelAndView("redirect:/", model);
 		} else {
 			model.put("Error", "You must fill the form completely.");
 			return new ModelAndView("register", model);
