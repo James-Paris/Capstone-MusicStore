@@ -27,6 +27,17 @@ public class User {
 	private String role = "USER";
 
 
+	public User(String username, String password, String role) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.role = role;
+	}
+
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getRole() {
 		return role;
 	}
