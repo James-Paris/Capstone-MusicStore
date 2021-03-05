@@ -119,7 +119,7 @@ public class TaskController {
 		model.put("deleted", user.getUsername());
 		return new ModelAndView("redirect:/admin", model);
 	}
-	
+
 	//remove order
 	@GetMapping("deleteorder/{id}")
 	public ModelAndView deleteOrder(ModelMap model, @PathVariable("id") Integer id) {
@@ -129,6 +129,7 @@ public class TaskController {
 		return new ModelAndView("redirect:/admin", model);
 	}
 	
+
 	@RequestMapping(value = "/LandingPage", method = RequestMethod.GET)
 		public String LandingPage(ModelMap model) {
 			return ("/LandingPage");
@@ -154,5 +155,6 @@ public class TaskController {
         return model;
 
     }
+
 
 }
