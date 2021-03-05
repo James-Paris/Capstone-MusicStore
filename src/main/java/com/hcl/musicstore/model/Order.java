@@ -3,6 +3,7 @@ package com.hcl.musicstore.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,10 +29,14 @@ public class Order {
 	
 	private String orderStatus;
 	
-	@ManyToOne
-	@JoinColumn(name="user_id")
+	@JoinColumn(name="user_id", nullable = false)
+	@ManyToOne(fetch=FetchType.EAGER)
 	private User user;
-
+	
+	public Order() {
+		
+	}
+	
 	public Integer getId() {
 		return id;
 	}

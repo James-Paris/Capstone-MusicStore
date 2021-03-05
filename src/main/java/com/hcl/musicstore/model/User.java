@@ -25,7 +25,18 @@ public class User {
 	private String password;
 	
 	private String role = "USER";
+	
+	@OneToMany(mappedBy="username", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+	private Set<Order> orderSet;
 
+
+	public Set<Order> getOrderSet() {
+		return orderSet;
+	}
+
+	public void setOrderSet(Set<Order> orderSet) {
+		this.orderSet = orderSet;
+	}
 
 	public User(String username, String password, String role) {
 		super();

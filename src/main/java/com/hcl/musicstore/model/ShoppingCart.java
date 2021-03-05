@@ -25,9 +25,22 @@ public class ShoppingCart {
             inverseJoinColumns = { @JoinColumn(name="user_id")}
     )
 
+    @OneToMany(mappedBy="order", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+    private Set<ShoppingCart> orderDetails;
 
+    public ShoppingCart() {
+    	
+    }
 
-    public Integer getCartId() {
+    public Set<ShoppingCart> getOrderDetails() {
+		return orderDetails;
+	}
+
+	public void setOrderDetails(Set<ShoppingCart> orderDetails) {
+		this.orderDetails = orderDetails;
+	}
+
+	public Integer getCartId() {
         return cartId;
     }
 

@@ -33,6 +33,24 @@ public class Music {
 
 	private String genre;
 
+	public Music() {
+		
+	}
+	
+	public Music(String songName, String artist, String album, Double price, String description,
+			Date releaseDate, String genre) {
+		super();
+		this.songName = songName;
+		this.artist = artist;
+		this.album = album;
+		this.price = price;
+		this.description = description;
+		this.releaseDate = releaseDate;
+		this.genre = genre;
+	}
+
+
+
 	public Integer getId() {
 		return id;
 	}
