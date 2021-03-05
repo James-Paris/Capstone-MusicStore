@@ -26,7 +26,7 @@ public class User {
 	
 	private String role = "USER";
 	
-	@OneToMany(mappedBy="username", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="id", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
 	private Set<Order> orderSet;
 
 
