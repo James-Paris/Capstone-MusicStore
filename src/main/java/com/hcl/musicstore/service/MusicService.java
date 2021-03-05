@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 import com.hcl.musicstore.model.Music;
 import com.hcl.musicstore.repository.TaskRepository;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import java.util.Optional;
+
 @Service
 public class MusicService {
 
@@ -25,8 +28,14 @@ public class MusicService {
     public Music AddTask(Music task) {
         return taskRepository.save(task);
     }
-    
-public List<Music> search(String keyword) {
+
+//    public Music addToCart(Integer id){return }
+
+    public Optional<Music> findById(Integer id) {
+        return null;
+    }
+
+    public List<Music> search(String keyword) {
 	return taskRepository.findMusicBySearch(keyword);
 }
     

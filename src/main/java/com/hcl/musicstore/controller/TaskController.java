@@ -52,7 +52,16 @@ public class TaskController {
 	}
 
 	// show tasks
-	@GetMapping({ "/", "/show-all" })
+	@GetMapping("/" )
+	public String landingPage(ModelMap model, Principal principal) {
+		log.info(principal.getName());
+
+		Iterable<Music> tasks = taskService.GetAllTasks();
+		model.put("musics", tasks);
+		model.put("user", userService.getUserByName(principal.getName()));
+		return "LandingPage";
+	}
+	@GetMapping( "/show-all" )
 	public String showAllTasks(ModelMap model, Principal principal) {
 		log.info(principal.getName());
 
@@ -87,6 +96,15 @@ public class TaskController {
 		model.put("deleted", task.getSongName());
 		return new ModelAndView("redirect:/show-all", model);
 	}
+
+	@GetMapping("add/{id}")
+	public ModelAndView addToCart(ModelMap model, @PathVariable("id") Integer id) {
+		log.info("Song Add: " + id);
+		Music task = taskService.GetTaskById(id);
+		taskService.DeleteTask(task);
+		model.put("deleted", task.getSongName());
+		return new ModelAndView("redirect:/show-all", model);
+	}
 	
 
 	@RequestMapping("/search")
@@ -108,7 +126,9 @@ public class TaskController {
 		model.put("user", userService.getUserByName(principal.getName()));
 		return "admin-showdata";
 	}
-	
+
+
+
 	//remove user
 	@GetMapping("deleteuser/{id}")
 	public ModelAndView deleteUser(ModelMap model, @PathVariable("id") Integer id) {

@@ -1,9 +1,8 @@
 package com.hcl.musicstore.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.Builder;
+
+import javax.persistence.*;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -12,6 +11,7 @@ import java.util.Set;
 import javax.persistence.*;
 
 @Entity
+
 public class User {
 	
 	@Id
@@ -25,10 +25,6 @@ public class User {
 	private String password;
 	
 	private String role = "USER";
-	
-	
-
-	
 
 
 	public String getRole() {
@@ -61,6 +57,9 @@ public class User {
 		return email;
 	}
 
+
+
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
@@ -77,7 +76,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", email=" + email + ", password=" + password
-				+ "]";
+				+ ", role=" + role + "]";
 	}
 	
 }

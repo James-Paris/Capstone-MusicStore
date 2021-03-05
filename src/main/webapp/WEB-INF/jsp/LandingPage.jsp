@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 
 <html>
@@ -18,36 +21,62 @@
 <body>
     <div class="menu-bar">
         <div class="container">
-            <nav class="navbar navbar-expand-lg">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#"><img src="../img/kids-2321161_960_720.webp"/></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ml-auto text-right">
-                            <li class="nav-item active">
-                                <a class="nav-link active" href="#">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="Menu.html">(Insert Here)</a>
-                            </li>
-                            <li class="nav-item">
-                               <a class="nav-link" href="Contact.html">(Insert Here)</a><!--  nav bar links -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">Runtime Mechanics</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                            </li>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin">Admin Panel</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="/shoppingcart">Cart</a>
+                        </li>
+                        <li class="nav-item">
+                            <p>${userList.username}</p>
 
-                            
+                        </li>
                     </ul>
+                    <form method="get" action="search" class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="text" name="keyword" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search">Search</button>
+                    </form>
                 </div>
-        </div>
-        </nav>
+            </nav>
 
     </div>
     </div>
     
 <div id="mySidebar" class="sidebar">
 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <!-- NAV BAR -->
+    <table class="table table-striped table-light">
+        <thead>
+        <tr>
+            <th scope="col">Product Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach items="${sh}" var="userList">
+            <tr>
+                <td>${music.id}</td>
+
+
+                <td><a href="/edit/${userList.id}">Edit</a></td>
+                <td><a href="/deleteuser/${userList.id}">Delete</a></td>
+            </tr>
+        </c:forEach>
+        </tbody>
+
+    </table>
+
+
  <h5>(insert shopping cart table code here</h5>
 </div>
 
@@ -69,61 +98,32 @@ function closeNav() {
     
 
     <div class="container banner text-center">
-        <br>
         <div class="row">
-            <div class="col-md-6">
-                <br>
-                <img src="img/vinyl-records-945396_960_720.jpg">
-            </div>
-            <div class="col-md-6">
-                <div class="info">
-                    <h1>Open Since blah blah blah</h1>
-                    <br>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <br>
-                    <a href="#">View Music</a>
-                    <a href="login.jsp" class="second-btn">Sign In</a>
+            <c:forEach items="${musics}" var="music">
 
+                <div class="col-lg-3 col-md-4 col-sm-6" style="margin: 10px;">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">${music.songName}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">${music.artist}</h6>
+                            <p class="card-text">${music.description}</p>
+
+                            <a class="card-link" href="/edit/${music.id}">Edit</a>
+                            <a class="card-link btn btn-danger" href="/delete/${music.id}">Delete</a>
+
+                            <a class="card-link btn btn-primary" href="/shoppingcart">Buy</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-md-3 footer-widget">
-            <i class="fa fa-phone"></i>
-            <div class="footer-text">
-                <h5>0 123-4567</h5>
-                <p>Ming Diner</p>
-            </div>
-        </div>
-        <div class="col-md-3 footer-widget">
-            <i class="fa fa-clock-o"></i>
-            <div class="footer-text">
-                <h5>Monday - Friday</h5>
-                <p>Ming Diner</p>
-            </div>
-        </div>
-        <div class="col-md-3 footer-widget">
-            <i class="fa fa-map-marker"></i>
-            <div class="footer-text">
-                <h5>123 Sesame Street.</h5>
-                <p>Ming Diner</p>
-            </div>
-        </div>
-        <div class="col-md-3 footer-widget">
-            <div class="social-icons">
-                <h5>FOLLOW US ON</h5>
-                <i class="fa fa-facebook"></i>
-                <i class="fa fa-twitter"></i>
-                <i class="fa fa-instagram"></i>
-            </div>
+            </c:forEach>
         </div>
     </div>
 
 
 </body>
+<footer>
+    <p>Copyright Runtime Mechanics</p>
+</footer>
 
 </html>

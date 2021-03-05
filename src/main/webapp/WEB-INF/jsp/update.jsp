@@ -21,17 +21,12 @@
 				<p>Please enter the details of your song:</p>
 				<label for="genre" class="mb-1">Genre:</label>
 				<div class="input-group mb-2">
-					<select name="genre" id="genre" class="form-control">
-						<option value="Rock"
-							<c:if test="${task.genre == 'Rock'}">selected</c:if>>Rock</option>
-						<option value="Pop"
-							<c:if test="${task.genre == 'Pop'}">selected</c:if>>Pop</option>
-						<option value="Hip Hop"
-							<c:if test="${task.genre == 'Hip Hop'}">selected</c:if>>Hip Hop</option>
-						<option value="Jazz"
-							<c:if test="${task.genre == 'Jazz'}">selected</c:if>>Jazz</option>
-						<option value="Country"
-							<c:if test="${task.genre == 'Country'}">selected</c:if>>Country</option>
+					<select name="genre" id="genre" class="form-control" value="${task.genre }">
+						<option value="Rock">Rock</option>
+						<option value="Pop">Pop</option>
+						<option value="Hip Hop">Hip Hop</option>
+						<option value="Jazz">Jazz</option>
+						<option value="Country">Country</option>
 					</select>
 				</div>
 				<label for="songName" class="mb-1">Song title:</label>
@@ -55,14 +50,14 @@
 				<label for="description" class="mb-1">Description:</label>
 				<div class="input-group mb-3">
 					<textarea id="description" name="description" rows="5" cols="40"
-					  class="form-control">${task.description }</textarea>
+					  class="form-control"></textarea>
 				</div>
 				
 				<label for="releaseDate" class="mb-1">Release Date:</label>
 				<div class="input-group mb-3">
 
-					<input type="date" id="releaseDate" name="releaseDate" class="form-control"
-						value=<fmt:formatDate pattern = "yyyy-MM-dd" value="${task.releaseDate}" />>
+					<input type="date" id="releaseDate" name="releaseDate"
+						value="${task.releaseDate}" class="form-control">
 				</div>
 				
 				<label for="price" class="mb-1">Song Price:</label>
